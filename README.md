@@ -24,16 +24,16 @@ The agent follows an iterative tool-calling workflow, allowing it to reason abou
 The agent follows an iterative tool-calling execution loop:
 
 ```mermaid
-flowchart LR
-    A["User Input (CLI)"] --> B["Agent"]
-    B --> C["LLM Client (LiteLLM)"]
-    C --> D{"Tool Calls?"}
-    D -->|No| E["Final Response"]
-    D -->|Yes| F["Tool Registry"]
-    F --> G["Execute Tool"]
-    G --> H["Tool Result"]
-    H --> I["Update Conversation History"]
-    I --> C
+flowchart TD
+A["User Input (CLI)"] --> B["Agent"]
+B --> C["LLM Client (LiteLLM)"]
+C --> D{"Tool Calls?"}
+D -->|No| E["Final Response"]
+D -->|Yes| F["Tool Registry"]
+F --> G["Execute Tool"]
+G --> H["Tool Result"]
+H --> I["Update Conversation History"]
+I --> C
 ```
 
 ### Agent Execution Flow
